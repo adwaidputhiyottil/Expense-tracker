@@ -1,5 +1,14 @@
 // IMPORTANT: Load environment variables FIRST before any other imports
 // so that process.env values are available everywhere (JWT_SECRET, MONGO_URI, etc.)
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://your-frontend.vercel.app"],
+    credentials: true,
+  }),
+);
+
 const dotenv = require('dotenv');
 dotenv.config();
 

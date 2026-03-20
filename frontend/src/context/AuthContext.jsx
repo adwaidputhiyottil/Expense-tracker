@@ -17,7 +17,9 @@ export const AuthProvider = ({ children }) => {
         // Set global axios detail for subsequent requests
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         try {
-          const res = await axios.get('http://localhost:5001/api/auth/me');
+          const res = await axios.get(
+            "https://expense-tracker-wjqs.onrender.com/",
+          );
           setUser(res.data.data);
         } catch (err) {
           // If token is invalid or expired, clear it
@@ -33,7 +35,10 @@ export const AuthProvider = ({ children }) => {
 
   // Function to handle user registration
   const register = async (userData) => {
-    const res = await axios.post('http://localhost:5001/api/auth/register', userData);
+    const res = await axios.post(
+      "https://expense-tracker-wjqs.onrender.com/",
+      userData,
+    );
     localStorage.setItem('token', res.data.token);
     setToken(res.data.token);
     setUser(res.data.user);
@@ -42,7 +47,10 @@ export const AuthProvider = ({ children }) => {
 
   // Function to handle user login
   const login = async (userData) => {
-    const res = await axios.post('http://localhost:5001/api/auth/login', userData);
+    const res = await axios.post(
+      "https://expense-tracker-wjqs.onrender.com/",
+      userData,
+    );
     localStorage.setItem('token', res.data.token);
     setToken(res.data.token);
     setUser(res.data.user);

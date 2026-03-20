@@ -14,7 +14,7 @@ const AdminDashboard = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/api/admin/users');
+      const res = await axios.get("https://expense-tracker-wjqs.onrender.com/");
       setUsers(res.data.data);
       setLoading(false);
     } catch (err) {
@@ -26,7 +26,7 @@ const AdminDashboard = () => {
   const deleteUser = async (id) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
-        await axios.delete(`http://localhost:5001/api/admin/users/${id}`);
+        await axios.delete(`https://expense-tracker-wjqs.onrender.com/`);
         setUsers(users.filter(user => user._id !== id));
       } catch (err) {
         alert('Failed to delete user');
@@ -43,9 +43,9 @@ const AdminDashboard = () => {
     }
 
     try {
-      await axios.put('http://localhost:5001/api/auth/updatepassword', {
+      await axios.put("https://expense-tracker-wjqs.onrender.com/", {
         currentPassword: passwordForm.currentPassword,
-        newPassword: passwordForm.newPassword
+        newPassword: passwordForm.newPassword,
       });
       setPasswordStatus({ error: '', success: 'Password updated successfully!' });
       setPasswordForm({ currentPassword: '', newPassword: '', confirmPassword: '' });

@@ -9,7 +9,9 @@ const ExpenseAnalysis = () => {
   useEffect(() => {
     const fetchAnalysis = async () => {
       try {
-        const res = await axios.get('http://localhost:5001/api/analysis');
+        const res = await axios.get(
+          "https://expense-tracker-wjqs.onrender.com/",
+        );
         setAnalysis(res.data.data);
         setLoading(false);
       } catch (err) {

@@ -11,7 +11,7 @@ import { AuthProvider, AuthContext } from './context/AuthContext';
 import './index.css';
 
 // Define the API URL for expenses
-const API_URL = 'http://localhost:5001/api/expenses';
+const API_URL = "https://expense-tracker-wjqs.onrender.com/";
 
 const MainApp = () => {
   // Access global auth state and user information
